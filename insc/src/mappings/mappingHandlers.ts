@@ -121,6 +121,7 @@ export async function handleRemark(event: SubstrateEvent): Promise<void> {
 
 async function handleDeploy(tick: string, totalSupply: number, mintLimit: number) {
   const token = new Token(tick)
+  token.tick = tick;
   token.totalSupply = totalSupply;
   token.mintLimit = mintLimit;
   await token.save()
