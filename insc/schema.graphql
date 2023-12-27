@@ -49,3 +49,17 @@ type Account @entity {
   sentTransfers: [Transfer] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of Transfer
   recievedTransfers: [Transfer] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of Transfer
 }
+
+enum Action {
+  DEPLOY
+  MINT
+  SEND
+}
+
+type Token @entity {
+  id: ID!
+  tick: String
+  totalSupply: Int
+  mintLimit: Int
+  currentIssuance: Int
+}
